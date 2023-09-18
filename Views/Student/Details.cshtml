@@ -1,0 +1,46 @@
+﻿@model Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        th {
+            font-size: 30px;
+        }
+    
+    </style>
+</head>
+<body>
+    <table class="table table-hover table-bordered">
+        <theader>
+            <tr>
+                <th style="color:red">ID</th>
+                <th style="color:red">NAME</th>
+                <th style="color:red">AGE</th>
+                <th style="color:red">DEPARTMENT</th>
+                <th style="color:red">Email</th>
+            </tr>
+        </theader>
+
+        <tr>
+            <th>@Model.Id</th>
+            <th>@Model.Name</th>
+            <th>@Model.Age</th>
+            <th>@Model.Department.Name</th>
+            <th>@Model.Email</th>
+        </tr>
+        
+
+    </table>
+    <a asp-action="index" asp-controller="student" style="font-size:40px; margin-left:45%" class="btn alert-danger"> Back </a>
+
+</body>
+</html>

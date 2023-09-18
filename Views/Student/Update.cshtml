@@ -1,0 +1,21 @@
+﻿@model Student
+@{
+    Layout = "_CreateUpdateLayout";
+    ViewBag.title = "Update";
+}
+
+<!DOCTYPE html>
+
+
+  <h1 class="alert alert-info text-center">Updating Student</h1>
+  <form  method="post">
+        <label asp-for="Name" for="name"></label> <input asp-for="Name" id="name" /> <br />
+        <label asp-for="Age" for="age"></label> <input asp-for="Age" id="age" /><br />
+        <label asp-for="Email" for="email"></label> <input asp-for="Email" id="email" /><br />
+        <label asp-for="Password" for="pass"></label> <input asp-for="Password" id="pass" /><br />
+        <label asp-for="CPassword" for="cpass"></label> <input asp-for="CPassword" id="cpass" /><br />
+        <label for="department"> Department</label>
+        <select asp-for="DeptId" asp-items="ViewBag.depts" id="department"></select> <br />
+        <input type="submit" value="Update"/>
+   
+  </form>

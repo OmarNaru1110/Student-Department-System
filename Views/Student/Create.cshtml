@@ -1,0 +1,23 @@
+﻿@model Student
+@{
+    Layout = "_CreateUpdateLayout";
+    ViewBag.title = "Create";
+}
+    <h1 class="alert alert-info text-center">Adding Student</h1>
+
+    <form method="post">
+    <label for="name">Name </label> <input asp-for="Name" id="name" /> <span style="color:red" asp-validation-for="Name"></span>     <br />
+    <label for="age">Age </label> <input asp-for="Age" id="age" /> <span style="color:red" asp-validation-for="Age"></span> <br />
+    <label for="email">Email Address </label> <input asp-for="Email" id="email" /> <span style="color:red" asp-validation-for="Email"></span> <br />
+    <label for="password"> Password</label> <input asp-for="Password" id="password" /> <span style="color:red" asp-validation-for="Password"></span> <br />
+    <label for="cpass"></label> Confirm Password <input asp-for="CPassword" id="cpass" /> <span style="color:red" asp-validation-for="CPassword"></span> <br />
+        <label for="deptid">Department </label>
+    <select asp-for="DeptId" asp-items="ViewBag.departments"> </select>
+    <span style="color:red" asp-validation-for="DeptId"></span>
+    <br />
+        <input type="submit" value="Add" />
+    </form>
+    @section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }
