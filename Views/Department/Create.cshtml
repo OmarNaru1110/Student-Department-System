@@ -1,6 +1,6 @@
 ﻿@model Department
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -11,14 +11,32 @@
     <title>Create</title>
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #212529;
+        }
+
+        form {
+            width: 30%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center horizontally */
+        }
+    </style>
 </head>
 <body>
     <h1 class="alert alert-info text-center">Adding Department</h1>
 
     <form method="post">
-        <label for="name">Name </label> <input asp-for="Name" id="name" /> <span style="color:red" asp-validation-for="Name"></span>
+        <div class="form-floating">
+            <input placeholder=" " class="form-control" asp-for="Name" id="name" /> <span style="color:red" asp-validation-for="Name"></span>
+            <label for="name">Name </label>
+        </div>
         <br />
-        <input type="submit" value="Add" />
+
+        <div style="text-align:center">
+            
+            <input style="width:30%" class="alert alert-info text-center" type="submit" value="Add" />
+        </div>
+
     </form>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>

@@ -29,6 +29,10 @@ namespace test.BLL
             db.Students.Update(st);
             db.SaveChanges();
         }
-        
+        public IEnumerable<Student> SearchByName(string name)
+        {
+            name = name.ToLower();
+            return db.Students.Include(s => s.Department).Where(s=>s.Name.ToLower().StartsWith(name));
+        }
     }
 }

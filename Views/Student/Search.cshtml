@@ -8,35 +8,27 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="~/css/site.css" rel="stylesheet"/>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>SearchResult</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-        body{
+        body {
             background-color: #212529
-            
         }
-        th,td{
-            color:white;
-            text-align:center;
+
+        th, td {
+            color: white;
+            text-align: center;
         }
 
     </style>
 
 </head>
 <body>
-    <form asp-controller="Student" asp-action="Search" >
-        <div class="input-group">
-            <input style="margin-left:70%" name="item" type="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search" aria-describedby="search-addon" />
-            <button type="submit" class="btn btn-outline-primary">search</button>
-        </div>
-    </form>
 
 
-    <div style="text-align:center; margin:10px 10px"> <a asp-action="create" asp-controller="student" class="btn btn-warning"> Add Student <span class="badge bg-info">@Model.Count()</span></a></div>
-    
 
-    <table class="table table-striped table-dark table-hover table-bordered " >
+    <table class="table table-striped table-dark table-hover table-bordered ">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -47,9 +39,9 @@
                 <th scope="col">Operation</th>
             </tr>
         </thead>
-        
-            @foreach (var item in Model)
-            {
+
+        @foreach (var item in Model)
+        {
             <tr>
                 <th scope="row">@item.Id</th>
                 <td>@item.Name</td>
@@ -64,9 +56,9 @@
                 </td>
             </tr>
 
-            }
-      
+        }
+
     </table>
-  
+
 </body>
 </html>

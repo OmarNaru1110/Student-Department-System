@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using project.ActionFilters;
 using test.BLL;
 using test.Context;
@@ -11,7 +12,6 @@ using test.Models;
 
 namespace test.Controllers
 {
-    [StudentClassException]
     public class StudentController:Controller
     {
   
@@ -39,10 +39,19 @@ namespace test.Controllers
             var students = studentBLL.getAll();
             return View(students);
         }
-        [Authorize]
-        public IActionResult Details(int? id)
+        public IActionResult Search(string item)
         {
-        
+            if (item is null)
+                return BadRequest();
+            IEnumerable<Student> students = studentBLL.SearchByName(item);
+            if (students.IsNullOrEmpty())
+                return NotFound("Nothing Matched");
+   
+            return View(students);
+            
+        }
+        public IActionResult Details(int? id)
+        { 
             if (id is null)
                 return BadRequest();
             Student student = studentBLL.getStudent(id.Value);

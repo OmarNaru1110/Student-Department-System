@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Department>
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -31,7 +31,14 @@
     </style>
 </head>
 <body>
-    
+
+    <form asp-controller="Department" asp-action="Search">
+        <div class="input-group">
+            <input style="margin-left:70%" name="item" type="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn btn-outline-primary">search</button>
+        </div>
+    </form>
+
     <div style="text-align:center; margin:10px 10px">
         <a asp-action="create" asp-controller="department" class="btn btn-warning"> Add Department 
             <span class="badge bg-info">@Model.Count() </span>

@@ -1,6 +1,6 @@
 ﻿@model Department
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -11,13 +11,31 @@
     <title>Update</title>
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #212529;
+        }
+
+        form {
+            width: 30%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center horizontally */
+        }
+    </style>
 </head>
 <body>
     <h1 class="alert alert-info text-center">Updating Student</h1>
     <form method="post">
-        <label asp-for="Name" for="name"></label> <input asp-for="Name" id="name" /> <br />
-        <input type="submit" value="Update" />
+        <div class="form-floating">
+            <input placeholder=" " class="form-control" asp-for="Name" id="name" />
+            <label asp-for="Name" for="name"></label>
+            <br />
+        </div>
 
+   
+
+        <div style="text-align:center">
+            <input style="width:30%" class="alert alert-info text-center" type="submit" value="Update" />
+        </div>
     </form>
 
 </body>

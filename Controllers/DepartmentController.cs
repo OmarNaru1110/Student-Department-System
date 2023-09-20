@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using test.BLL;
 using test.Models;
 
@@ -60,6 +61,16 @@ namespace project.Controllers
                 return NotFound("No department with such id");
 
             return View(department);
+        }
+        public IActionResult Search(string item)
+        {
+            if (item is null)
+                return BadRequest();
+            IEnumerable<Department> departments= departmentBLL.SearchByName(item);
+            if (departments.IsNullOrEmpty())
+                return NotFound("Nothing Matched");
+            return View(departments);
+
         }
     }
 }

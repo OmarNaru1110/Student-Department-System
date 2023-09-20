@@ -1,6 +1,6 @@
 ﻿@model Student
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -15,10 +15,15 @@
         th {
             font-size: 30px;
         }
+
+        body {
+            background-color: #212529;
+        }
     
     </style>
 </head>
 <body>
+
     <table class="table table-hover table-bordered">
         <theader>
             <tr>
@@ -27,15 +32,17 @@
                 <th style="color:red">AGE</th>
                 <th style="color:red">DEPARTMENT</th>
                 <th style="color:red">Email</th>
+                <th style="color:red">Password</th>
             </tr>
         </theader>
 
         <tr>
-            <th>@Model.Id</th>
-            <th>@Model.Name</th>
-            <th>@Model.Age</th>
-            <th>@Model.Department.Name</th>
-            <th>@Model.Email</th>
+            <th style="color:white">@Model.Id</th>
+            <th style="color:white">@Model.Name</th>
+            <th style="color:white">@Model.Age</th>
+            <th style="color:white">@Model.Department.Name</th>
+            <th style="color:white">@Model.Email</th>
+            <th style="color:white">@Model.Password</th>
         </tr>
         
 

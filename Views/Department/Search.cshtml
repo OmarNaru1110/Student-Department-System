@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Department>
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search Result</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #212529
+        }
+
+        th, td {
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <table class="table table-striped table-dark table-hover table-bordered ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">OPERATIONS</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-action="details" asp-controller="student" asp-route-id="@item.Id" class="btn btn-info"> Details </a>
+                    <a asp-action="delete" asp-controller="student" asp-route-id="@item.Id" onclick="return confirm('Are You Sure?')" class="btn btn-danger"> Delete </a>
+                    <a asp-action="update" asp-controller="student" asp-route-id="@item.Id" class="btn btn-primary"> Update </a>
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</body>
+</html>

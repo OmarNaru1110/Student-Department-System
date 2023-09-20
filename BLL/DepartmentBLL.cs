@@ -9,7 +9,7 @@ namespace test.BLL
     {
         itiContext db = new itiContext();
         public List<Department> getAll() => db.Departments.Include(d=>d.students).ToList();
-        public Department getDepartment(int id) => db.Departments.SingleOrDefault(d => d.Id == id);
+        public Department getDepartment(int id) => db.Departments.Include( d=>d.students).SingleOrDefault(d => d.Id == id);
         public void Add(Department department)
         {
             db.Departments.Add(department);
@@ -29,6 +29,11 @@ namespace test.BLL
             db.Departments.Update(dept);
             db.SaveChanges();
         }
-        
+        public IEnumerable<Department> SearchByName(string name)
+        {
+            name = name.ToLower();
+            return db.Departments.Where(s => s.Name.ToLower().StartsWith(name));
+        }
+
     }
 }

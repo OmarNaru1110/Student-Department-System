@@ -1,21 +1,70 @@
 ﻿@model Student
 @{
-    Layout = "_CreateUpdateLayout";
+    Layout = "_Layout";
     ViewBag.title = "Update";
 }
 
+
 <!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #212529;
+        }
 
+        form {
+            width: 30%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center horizontally */
+        }
+    </style>
+</head>
+<body>
   <h1 class="alert alert-info text-center">Updating Student</h1>
   <form  method="post">
-        <label asp-for="Name" for="name"></label> <input asp-for="Name" id="name" /> <br />
-        <label asp-for="Age" for="age"></label> <input asp-for="Age" id="age" /><br />
-        <label asp-for="Email" for="email"></label> <input asp-for="Email" id="email" /><br />
-        <label asp-for="Password" for="pass"></label> <input asp-for="Password" id="pass" /><br />
-        <label asp-for="CPassword" for="cpass"></label> <input asp-for="CPassword" id="cpass" /><br />
+    <div class="form-floating">
+        <input placeholder=" " class="form-control" asp-for="Name" id="name" /> 
+        <label asp-for="Name" for="name"></label>
+        <br />
+    </div>
+
+    <div class="form-floating">
+        <input placeholder=" " class="form-control" asp-for="Age" id="age" />
+        <label asp-for="Age" for="age"></label>
+        <br />
+    </div>
+
+    <div class="form-floating">
+        <input placeholder=" " class="form-control" asp-for="Email" id="email" />
+        <label asp-for="Email" for="email"></label>
+        <br />
+    </div>
+
+    <div class="form-floating">
+        <input placeholder=" " class="form-control" asp-for="Password" id="pass" />
+        <label asp-for="Password" for="pass"> </label>
+        <br />
+    </div>
+
+    <div class="form-floating">
+        <input placeholder=" " class="form-control" asp-for="CPassword" id="cpass" />
+        <label asp-for="CPassword" for="cpass"></label>
+        <br />
+    </div>
+
+    <div class="form-floating">
+        <select placeholder=" " class="form-control" asp-for="DeptId" asp-items="ViewBag.depts" id="department"></select> 
         <label for="department"> Department</label>
-        <select asp-for="DeptId" asp-items="ViewBag.depts" id="department"></select> <br />
-        <input type="submit" value="Update"/>
-   
-  </form>
+        <br />
+    </div>
+    <div style="text-align:center">
+        <input style="width:30%" class="alert alert-info text-center" type="submit" value="Update" />
+    </div>
+</form>
+</body>
+</html>

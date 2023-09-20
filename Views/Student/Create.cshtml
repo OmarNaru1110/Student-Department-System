@@ -1,46 +1,72 @@
 ﻿@model Student
 @{
-    Layout = "_CreateUpdateLayout";
+    Layout = "_Layout";
     ViewBag.title = "Create";
 }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #212529;
+        }
+
+        form {
+            width: 30%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center horizontally */
+        }
+    </style>
+</head>
+<body>
+
     <h1 class="alert alert-info text-center">Adding Student</h1>
 
 <form method="post">
-    <div class="form-floating" style="margin-right:80%">
+    <div class="form-floating" >
         <input placeholder=" " class="form-control" asp-for="Name" id="name" /> <span style="color:red" asp-validation-for="Name"></span>
         <label for="name">Name </label>
     </div>
     <br />
-    <div class="form-floating" style="margin-right:80%">
+    <div class="form-floating">
         <input placeholder=" " class="form-control" asp-for="Age" id="age" /> <span style="color:red" asp-validation-for="Age"></span>
         <label for="age">Age </label>
     </div>
     <br />
-    <div class="form-floating" style="margin-right:80%">
+    <div class="form-floating" >
         <input placeholder=" " class="form-control" asp-for="Email" id="email" /> <span style="color:red" asp-validation-for="Email"></span>
         <label for="email">Email Address </label>
     </div>
     <br />
-    <div class="form-floating" style="margin-right:80%">
+    <div class="form-floating" >
         <input placeholder=" " class="form-control" asp-for="Password" id="password" /> <span style="color:red" asp-validation-for="Password"></span>
         <label for="password"> Password</label>
     </div>
     <br />
-    <div class="form-floating" style="margin-right:80%">
+    <div class="form-floating" >
         <input placeholder=" " class="form-control" asp-for="CPassword" id="cpass" /> <span style="color:red" asp-validation-for="CPassword"></span>
         <label for="cpass"> Confirm Password </label>
     </div>
     <br />
-    <div class="form-floating" style="margin-right:80%">
+    <div class="form-floating">
         <select class="form-select" asp-for="DeptId" asp-items="ViewBag.departments"> </select>
         <span style="color:red" asp-validation-for="DeptId"></span>
         <label for="deptid">Department </label>
     </div>
-
     <br />
-        <input type="submit" value="Add" />
+    <div style="text-align:center">
+        <input style="width:30%" class="alert alert-info text-center" type="submit" value="Add" />
+    </div>
     </form>
-    @section Scripts{
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    }
+</body>
+</html>
+
